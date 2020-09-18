@@ -1,0 +1,7 @@
+#Comment line starts with # sign. Only first 3 columns will be read as follows.
+dyn_type        FGR         <str>    # LSC, SQC, MF, FGR
+load_file1      1Ddata.dat  <str>    # load 1D parameters file
+load_file2      2Ddata.dat  <str>    # load 2D parameters file
+nsteps          2000        <int>    # total nuclear steps to run
+ntraj           1           <int>    # total number of traj
+DT              0.22        <real>   # time step
