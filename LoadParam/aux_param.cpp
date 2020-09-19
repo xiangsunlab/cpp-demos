@@ -306,7 +306,7 @@ void save1Ddata(string outputfile, vector<double>& data) {
     ofstream outfile;
     outfile.open(outputfile);
     for (i = 0; i < n; i++) {
-        outfile << data[i] << endl;
+        outfile << setprecision(14) << data[i] << endl;
     }
     outfile.close();
     outfile.clear();
