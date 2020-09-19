@@ -245,7 +245,7 @@ void load1Ddata(string inputfile, vector<double>& data, int header) {
         count++;
     }
     data.erase(data.begin()+count, data.end());
-    cout << "--> Loaded 1D data (" << data.size() << " rows) from file: <" << inputfile << ">" << endl;
+    cout << ">>  Loaded 1D data (" << data.size() << " rows) from file: <" << inputfile << ">" << endl;
     return;
 }
 
@@ -292,13 +292,27 @@ string load2Ddata(string inputfile, Real_Matrix& data, const int ncol, char deli
         count++;
     }
     data.erase(data.begin()+count, data.end());
-    cout << "--> Loaded 2D data (" << data.size() << " rows, " << ncol << " cols) from file: <" << inputfile << ">" << endl;
+    cout << ">>  Loaded 2D data (" << data.size() << " rows, " << ncol << " cols) from file: <" << inputfile << ">" << endl;
 
 
     return colnames;
 }
 
 
+
+void save1Ddata(string outputfile, vector<double>& data) {
+    int i;
+    int n = data.size();
+    ofstream outfile;
+    outfile.open(outputfile);
+    for (i = 0; i < n; i++) {
+        outfile << data[i] << endl;
+    }
+    outfile.close();
+    outfile.clear();
+    cout << "<<  Saved  1D data (" << data.size() << " rows) to file: <" << outputfile << ">" << endl;
+    return;
+}
 
 
 
@@ -665,4 +679,34 @@ void CorrFunc(const int trun, const int tcor, vector<double>& A, vector<double>&
         Corr[t]/=norm[t];
     }
     return;
+}
+
+
+double Sum(double *data, int n){
+    double S = 0;
+    for (int i = 0; i< n; i++) {
+        S += data[i];
+    }
+    return S;
+}
+
+
+
+double Sum(vector<double> data) {
+    int n = data.size();
+    double S = 0;
+    for(int i = 0; i < n; i++) {
+        S += data[i];
+    }
+    return S;
+}
+
+
+double Mean(vector<double> data) {
+    int n = data.size();
+    double S = 0;
+    for(int i = 0; i < n; i++) {
+        S += data[i];
+    }
+    return S/n;
 }

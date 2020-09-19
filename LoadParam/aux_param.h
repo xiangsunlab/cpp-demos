@@ -85,7 +85,7 @@ void load1Ddata(string inputfile, vector<double>& data, int header=0);
 
 string load2Ddata(string inputfile, Real_Matrix& data, const int ncol, char delimiter=',', int header=0); //returning header (column names) if exists
 
-
+void save1Ddata(string outputfile, vector<double>& data);
 
 //--------------- AUXILIARY FUNCTIONS -----------------
 Real delta(int a, int b);
@@ -114,8 +114,11 @@ void CorrFunc(const int trun, const int tcor, double A[], double B[], double Cor
 
 void CorrFunc(const int trun, const int tcor, vector<double>& A, vector<double>& B, vector<double>& Corr);
 
+double Sum(double *data, int n);
 
+double Sum(vector<double> data);
 
+double Mean(vector<double> data);
 
 //Note template must be defined in header file!
 template <typename Container>
